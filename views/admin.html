@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin · Vierra Care Services</title>
+<link rel="icon" href="/img/favicon.png">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin">
+<section id="login" class="login" hidden>
+  <form id="login-form" class="login-card">
+    <img src="/img/logo-full.png" alt="Vierra Care Services" width="190">
+    <h1>Team sign in</h1>
+    <div class="err" role="alert"></div>
+    <div class="field"><label for="u">Username</label><input id="u" name="username" autocomplete="username" required></div>
+    <div class="field"><label for="p">Password</label><input id="p" name="password" type="password" autocomplete="current-password" required></div>
+    <button class="btn btn-lg" style="width:100%">Sign in</button>
+  </form>
+</section>
+
+<section id="dash" hidden>
+  <header class="a-top">
+    <div class="a-brand"><img src="/img/logo-mark.png" alt="" width="36" height="36"><b>Vierra</b><small>Inbox</small></div>
+    <div class="a-actions">
+      <a class="btn btn-ghost" href="/api/admin/export.csv">Export CSV</a>
+      <a class="btn btn-ghost" href="/" target="_blank" rel="noopener">View site</a>
+      <button class="btn" id="logout">Sign out</button>
+    </div>
+  </header>
+  <main class="a-main">
+    <div class="a-stats" id="stats"></div>
+    <div class="a-bar">
+      <div class="a-tabs" id="tabs">
+        <button data-type="" class="on">All</button>
+        <button data-type="care_request">Care requests</button>
+        <button data-type="contact">Messages</button>
+        <button data-type="application">Applications</button>
+      </div>
+      <select id="status"><option value="">Any status</option><option value="new">New</option><option value="in_progress">In progress</option><option value="done">Done</option></select>
+      <input id="q" type="search" placeholder="Search name, phone, email, text…">
+    </div>
+    <div id="list" class="a-list" aria-live="polite"></div>
+  </main>
+</section>
+<script src="/js/admin.js"></script>
+</body>
+</html>

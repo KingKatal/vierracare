@@ -1,0 +1,34 @@
+<footer class="site-footer">
+  <div class="foot-wave" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 50C240 90 480 90 720 55S1200 0 1440 40V80H0z"/></svg></div>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="/img/logo-mark-white.png" alt="" width="64" height="64">
+      <h3>VIERRA <small>Care Services</small></h3>
+      <p>{{site.motto}}</p>
+      <div class="social">
+        <a href="{{site.social.facebook}}" data-social aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a>
+        <a href="{{site.social.instagram}}" data-social aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
+        <a href="{{site.social.linkedin}}" data-social aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="/about">About us</a><a href="/services">Our services</a><a href="/faq">FAQ</a><a href="/careers">Careers</a><a href="/privacy">Privacy</a>
+    </div>
+    <div>
+      <h4>Care</h4>
+      <a href="/services#nursing">Nursing care</a><a href="/services#personal">Personal support</a><a href="/services#companionship">Companionship</a><a href="/services#respite">Respite &amp; transition</a><a href="/request-care">Request care</a>
+    </div>
+    <div>
+      <h4>Talk to us</h4>
+      <a href="tel:{{site.phoneHref}}"><svg><use href="#i-phone"/></svg>{{site.phone}}</a>
+      <a href="mailto:{{site.email}}"><svg><use href="#i-mail"/></svg>{{site.email}}</a>
+      <span><svg><use href="#i-pin"/></svg>{{site.address}}</span>
+    </div>
+  </div>
+  <div class="wrap foot-base">
+    <span>© {{site.year}} {{site.name}}. All rights reserved.</span>
+    <span>{{site.tagline}}</span>
+    <a href="#top" class="to-top" aria-label="Back to top"><svg><use href="#i-arrow"/></svg></a>
+  </div>
+</footer>

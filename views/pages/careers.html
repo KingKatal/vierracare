@@ -1,0 +1,59 @@
+<section class="phero">
+  <div class="wrap">
+    <div class="crumbs"><a href="/">Home</a> / Careers</div>
+    <span class="eyebrow">Careers</span>
+    <h1>Do work that feels like <em style="color:var(--gold2)">calling</em>.</h1>
+    <p class="lead">We’re always glad to meet nurses, health care aides and caring people who want to make a difference at home.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:30px">
+  <div class="wrap">
+    <div class="grid g4">
+      <div class="card tilt reveal"><span class="icon"><svg><use href="#i-nurse"/></svg></span><h3>Registered Nurses</h3><p>Lead clinical care and guide the wider team.</p></div>
+      <div class="card tilt reveal" style="--d:80"><span class="icon"><svg><use href="#i-shield"/></svg></span><h3>Licensed Practical Nurses</h3><p>Deliver skilled nursing within your scope of practice.</p></div>
+      <div class="card tilt reveal" style="--d:160"><span class="icon"><svg><use href="#i-hand"/></svg></span><h3>Health Care Aides</h3><p>Support daily living with dignity and skill.</p></div>
+      <div class="card tilt reveal" style="--d:240"><span class="icon"><svg><use href="#i-chat"/></svg></span><h3>Companions &amp; caregivers</h3><p>Bring warmth, patience and good company.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-mist">
+  <div class="wrap layout-form">
+    <div class="form-card reveal" data-r="left">
+      <h2 style="font-size:2rem">Apply to join Vierra</h2>
+      <p style="color:var(--muted)">Tell us a little about yourself. We’ll contact you when a suitable opening is available.</p>
+      <form id="apply-form" data-form="/api/apply" novalidate>
+        <div class="err" role="alert"></div>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="row2">
+          <div class="field"><label for="a-name">Full name <i>*</i></label><input id="a-name" name="name" required maxlength="100" autocomplete="name"></div>
+          <div class="field"><label for="a-role">Role <i>*</i></label><select id="a-role" name="role" required><option value="">Choose…</option><option>Registered Nurse (RN)</option><option>Licensed Practical Nurse (LPN)</option><option>Health Care Aide (HCA)</option><option>Personal support worker</option><option>Companion / caregiver</option><option>Other</option></select></div>
+          <div class="field"><label for="a-phone">Phone / WhatsApp</label><input id="a-phone" name="phone" type="tel" maxlength="25" autocomplete="tel"></div>
+          <div class="field"><label for="a-email">Email</label><input id="a-email" name="email" type="email" maxlength="150" autocomplete="email"></div>
+          <div class="field"><label for="a-exp">Years of experience</label><select id="a-exp" name="experience"><option value="">Choose…</option><option>Less than 1 year</option><option>1–3 years</option><option>3–5 years</option><option>5–10 years</option><option>10+ years</option></select></div>
+          <div class="field"><label for="a-lic">Qualification / registration</label><input id="a-lic" name="licence" maxlength="120" placeholder="e.g. Diploma in Nursing, registered with…"></div>
+        </div>
+        <div class="field"><label for="a-av">Availability</label><input id="a-av" name="availability" maxlength="80" placeholder="e.g. Weekdays, nights, live-in"></div>
+        <div class="field"><label for="a-msg">Why would you like to join us?</label><textarea id="a-msg" name="message" maxlength="3000"></textarea></div>
+        <label class="check"><input type="checkbox" name="consent" value="1"> <span>I agree that Vierra Care Services may store my details to consider me for roles. See the <a href="/privacy" style="text-decoration:underline">privacy policy</a>.</span></label>
+        <button class="btn btn-gold btn-lg" type="submit">Submit application <svg><use href="#i-arrow"/></svg></button>
+      </form>
+      <div class="success" data-success>
+        <div class="badge"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></div>
+        <h2>Application received</h2>
+        <p class="lead" style="margin-inline:auto">Thank you for your interest in Vierra. We’ll be in touch when there’s a suitable opening.</p>
+        <a class="btn" href="/">Back to home</a>
+      </div>
+    </div>
+    <aside class="aside reveal" data-r="right">
+      <div class="box"><h3>Life at Vierra</h3>
+        <ol>
+          <li><div><b>Nurse-led standards</b>Clinical leadership you can learn from.</div></li>
+          <li><div><b>Respect for carers</b>Your skill and compassion matter here.</div></li>
+          <li><div><b>Meaningful work</b>Real impact in people’s homes and lives.</div></li>
+        </ol>
+      </div>
+    </aside>
+  </div>
+</section>

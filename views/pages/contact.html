@@ -1,0 +1,43 @@
+<section class="phero">
+  <div class="wrap">
+    <div class="crumbs"><a href="/">Home</a> / Contact</div>
+    <span class="eyebrow">Contact</span>
+    <h1>We’d love to <em style="color:var(--gold2)">hear</em> from you.</h1>
+    <p class="lead">Call, message or write — whichever feels easiest. We’ll respond personally.</p>
+  </div>
+</section>
+<section class="section" style="padding-top:30px">
+  <div class="wrap layout-form">
+    <div class="form-card reveal" data-r="left">
+      <h2 style="font-size:2rem">Send us a message</h2>
+      <form id="contact-form" data-form="/api/contact" novalidate>
+        <div class="err" role="alert"></div>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="row2">
+          <div class="field"><label for="c-name">Your name <i>*</i></label><input id="c-name" name="name" required maxlength="100" autocomplete="name"></div>
+          <div class="field"><label for="c-subject">Subject</label><input id="c-subject" name="subject" maxlength="120" placeholder="How can we help?"></div>
+          <div class="field"><label for="c-phone">Phone / WhatsApp</label><input id="c-phone" name="phone" type="tel" maxlength="25" autocomplete="tel"></div>
+          <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" maxlength="150" autocomplete="email"></div>
+        </div>
+        <div class="field"><label for="c-msg">Message <i>*</i></label><textarea id="c-msg" name="message" required maxlength="3000"></textarea></div>
+        <button class="btn btn-gold btn-lg" type="submit">Send message <svg><use href="#i-arrow"/></svg></button>
+      </form>
+      <div class="success" data-success>
+        <div class="badge"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></div>
+        <h2>Message sent</h2>
+        <p class="lead" style="margin-inline:auto">Thank you — we’ll reply as soon as we can.</p>
+        <a class="btn" href="/">Back to home</a>
+      </div>
+    </div>
+    <aside class="aside reveal" data-r="right">
+      <div class="contact-cards">
+        <a class="ccard" href="tel:{{site.phoneHref}}"><span class="ic"><svg><use href="#i-phone"/></svg></span><div><small>Call us</small><b>{{site.phone}}</b></div></a>
+        <a class="ccard wa" href="https://wa.me/{{site.whatsapp}}" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-whatsapp"/></svg></span><div><small>WhatsApp</small><b>Start a chat</b></div></a>
+        <a class="ccard" href="mailto:{{site.email}}"><span class="ic"><svg><use href="#i-mail"/></svg></span><div><small>Email</small><b>{{site.email}}</b></div></a>
+        <div class="ccard"><span class="ic"><svg><use href="#i-pin"/></svg></span><div><small>Visit / service area</small><b>{{site.address}}</b><br><span style="color:var(--muted);font-size:.9rem">{{site.serviceArea}}</span></div></div>
+        <div class="ccard"><span class="ic"><svg><use href="#i-clock"/></svg></span><div><small>Hours</small><b>{{site.hours}}</b></div></div>
+      </div>
+      <p class="note">In a medical emergency please call your local emergency number or go to the nearest hospital.</p>
+    </aside>
+  </div>
+</section>

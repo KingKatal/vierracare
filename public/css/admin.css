@@ -1,0 +1,43 @@
+body.admin{background:var(--mist2);font-size:15px}
+.login{min-height:100svh;display:grid;place-items:center;padding:20px;background:radial-gradient(900px 500px at 80% 0,var(--mist),transparent),var(--cream)}
+.login[hidden],#dash[hidden]{display:none}
+.login-card{width:min(420px,100%);background:#fff;border-radius:26px;padding:36px;box-shadow:var(--shadow);border:1px solid var(--line);text-align:center}
+.login-card .field{text-align:left}
+.login-card h1{font-size:1.7rem;margin:14px 0 20px}
+.a-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px clamp(16px,4vw,40px);background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.a-brand{display:flex;align-items:center;gap:10px}.a-brand b{font-size:1.2rem;letter-spacing:.12em;color:var(--g7)}.a-brand small{color:var(--muted);letter-spacing:.2em;text-transform:uppercase;font-size:.65rem}
+.a-actions{display:flex;gap:8px;flex-wrap:wrap}.a-actions .btn{padding:.6em 1.1em;font-size:.88rem}
+.a-main{width:min(1100px,100% - 32px);margin:26px auto 80px}
+.a-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:22px}
+.a-stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.a-stat b{display:block;font-family:var(--display);font-size:2.2rem;color:var(--g7);line-height:1}
+.a-stat span{color:var(--muted);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+.a-stat.hot{background:var(--g7)}.a-stat.hot b{color:var(--gold2)}.a-stat.hot span{color:#bcd4c8}
+.a-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.a-tabs{display:flex;gap:6px;background:#fff;border:1px solid var(--line);padding:5px;border-radius:99px;flex-wrap:wrap}
+.a-tabs button{border:0;background:transparent;padding:.55em 1.1em;border-radius:99px;font:inherit;font-weight:600;color:var(--g7);cursor:pointer}
+.a-tabs button.on{background:var(--g7);color:#fff}
+.a-bar select,.a-bar input{font:inherit;padding:.6em 1em;border:1px solid var(--line);border-radius:99px;background:#fff}
+.a-bar input{flex:1;min-width:200px}
+.a-list{display:grid;gap:12px}
+.a-item{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.a-item.new{border-left:5px solid var(--gold)}
+.a-head{display:grid;grid-template-columns:auto 1fr auto auto;gap:14px;align-items:center;padding:16px 18px;cursor:pointer}
+.a-head:hover{background:var(--mist2)}
+.a-type{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.35em .8em;border-radius:99px;background:var(--mist);color:var(--g6);white-space:nowrap}
+.a-type.care_request{background:var(--g7);color:#fff}.a-type.application{background:var(--gold3);color:#6b5518}
+.a-who b{color:var(--g7)}.a-who small{display:block;color:var(--muted)}
+.a-when{color:var(--muted);font-size:.85rem;white-space:nowrap}
+.a-st{font-weight:700;font-size:.78rem;padding:.3em .8em;border-radius:99px}
+.a-st.new{background:#fff3d6;color:#7a5a00}.a-st.in_progress{background:#dcebff;color:#1b4a8a}.a-st.done{background:#dff3e6;color:#1b6a3a}
+.a-body{display:none;padding:6px 20px 20px;border-top:1px solid var(--line)}
+.a-item.open .a-body{display:block}
+.a-kv{display:grid;grid-template-columns:150px 1fr;gap:6px 14px;margin:14px 0}
+.a-kv dt{color:var(--muted)}.a-kv dd{margin:0;white-space:pre-wrap;word-break:break-word}
+.a-edit{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start}
+.a-edit textarea{flex:1;min-width:240px;min-height:70px;font:inherit;padding:.7em 1em;border:1px solid var(--line);border-radius:12px}
+.a-edit select{font:inherit;padding:.6em 1em;border:1px solid var(--line);border-radius:12px}
+.a-edit .btn{padding:.6em 1.1em;font-size:.88rem}
+.a-del{--bg:#fff;--fg:#9b2c1f;box-shadow:inset 0 0 0 1.5px #e5b9b2}
+.a-empty{text-align:center;padding:60px 20px;color:var(--muted);background:#fff;border-radius:18px;border:1px dashed var(--sage2)}
+@media (max-width:700px){.a-head{grid-template-columns:1fr auto}.a-when{grid-column:1/-1}.a-kv{grid-template-columns:1fr}.a-kv dt{font-weight:700}}

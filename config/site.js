@@ -1,0 +1,40 @@
+// ─────────────────────────────────────────────────────────────
+//  Vierra Care Services — business details
+//  Edit this ONE file to update phone, email, address, hours,
+//  social links, etc. across every page of the website.
+//  Anything marked  ⚠ CONFIRM  is a placeholder to replace.
+// ─────────────────────────────────────────────────────────────
+module.exports = {
+  name: 'Vierra Care Services',
+  short: 'Vierra',
+  tagline: 'Care that feels like home.',
+  motto: 'Compassionate Care. Dignified Living. Peace of Mind.',
+  founder: 'Agatha Gondwe, RN',
+  founderRole: 'Founder & Owner',
+
+  // SITE_URL wins. Otherwise use Vercel's production/preview URL, then localhost.
+  url: (() => {
+    const raw = process.env.SITE_URL
+      || (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`)
+      || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
+      || 'http://localhost:3000';
+    const withProto = /^https?:\/\//.test(raw) ? raw : `https://${raw}`;
+    return withProto.replace(/\/+$/, '');
+  })(),
+
+  phone: '+000 000 000 000',          // ⚠ CONFIRM — shown on site, used for tap-to-call
+  phoneHref: '+000000000000',         // ⚠ CONFIRM — digits only, with country code
+  whatsapp: '000000000000',           // ⚠ CONFIRM — digits only, no "+"; leave '' to hide WhatsApp button
+  email: 'hello@vierracare.com',      // ⚠ CONFIRM
+  address: 'Your street address, City', // ⚠ CONFIRM
+  serviceArea: 'Home visits across your city and surrounding areas', // ⚠ CONFIRM
+  hours: 'Mon – Sun · Care available around the clock by arrangement', // ⚠ CONFIRM
+
+  social: {
+    facebook: '',   // e.g. https://facebook.com/vierracare
+    instagram: '',
+    linkedin: ''
+  },
+
+  year: new Date().getFullYear()
+};

@@ -22,9 +22,9 @@ module.exports = {
     return withProto.replace(/\/+$/, '');
   })(),
 
-  phone: '+000 000 000 000',          // ⚠ CONFIRM — shown on site, used for tap-to-call
-  phoneHref: '+000000000000',         // ⚠ CONFIRM — digits only, with country code
-  whatsapp: '000000000000',           // ⚠ CONFIRM — digits only, no "+"; leave '' to hide WhatsApp button
+  phone: '+1 (403) 877-9886',       // shown on site, used for tap-to-call
+  phoneHref: '+14038779886',        // digits only, with country code
+  whatsapp: '14038779886',          // digits only, no "+"; leave '' to hide WhatsApp button
   email: 'hello@vierracare.com',      // ⚠ CONFIRM
   address: 'Your street address, City', // ⚠ CONFIRM
   serviceArea: 'Home visits across your city and surrounding areas', // ⚠ CONFIRM

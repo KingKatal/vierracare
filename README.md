@@ -1,18 +1,17 @@
 # Vierra Care Services — Website
 
-Full-stack site: Node.js + Express backend, SQLite database, server-rendered multi-page frontend with custom animations (no framework, fast on mobile data).
+Static multi-page site with custom animations (no framework, fast on mobile data), pre-rendered at build time and hosted on Netlify. Form submissions and the admin inbox run on Netlify Functions, with data stored in Netlify Database (Postgres).
 
 ## Run it
 ```bash
 npm install
-cp .env.example .env     # then edit it
-npm start                # http://localhost:3000
+npm run build            # renders pages into dist/
+npm run dev              # netlify dev → http://localhost:8888
 ```
-Needs **Node 22.13+**. No separate database server needed.
 
 ## Before going live (important)
 1. **Edit `config/site.js`**: phone, WhatsApp number, email, address, hours, social links. Every page updates.
-2. **Set `.env`**: `ADMIN_PASSWORD`, `SESSION_SECRET`, `SITE_URL`.
+2. **Set environment variables in Netlify**: `ADMIN_PASSWORD`, `SESSION_SECRET`, `SITE_URL` (see `.env.example`). Admin sign-in stays disabled until `ADMIN_PASSWORD` is set.
 3. Replace `public/img/hero-portrait.jpg` and `hero-wide.jpg` with high-resolution photos (current ones were cropped from the flyer/banner, so they are low resolution).
 4. Have the privacy policy (`views/pages/privacy.html`) reviewed for your country's rules.
 5. Add real client testimonials only once you have permission from real clients.
@@ -27,12 +26,9 @@ Care requests, messages and job applications. Set status (New / In progress / Do
 Fill in the `SMTP_*` variables. Without them, submissions are still saved and visible in `/admin`.
 
 ## Deploy
-Any host that runs Node (Render, Railway, Fly.io, or a VPS with Nginx + PM2).
-- Set `NODE_ENV=production` and the variables above.
-- Keep `data/` on persistent storage (it holds `vierra.db`) and back it up.
-- Point the domain at the host and enable HTTPS.
+Netlify builds with `npm run build` and publishes `dist/` (see `netlify.toml`). Database migrations in `netlify/database/migrations/` are applied automatically on deploy. After changing `db/schema.ts`, run `npx drizzle-kit generate --name <change>`.
 
 ## Structure
-config/site.js (business details) · server/ (routes, db, auth, mailer, templating) · views/ (layout, partials, pages, admin) · public/ (css, js, img, fonts) · data/ (SQLite)
+config/site.js (business details) · scripts/build.js (static page renderer) · netlify/functions/ (form + admin API) · db/ (schema + queries) · server/ (auth, mailer, templating) · views/ (layout, partials, pages, admin) · public/ (css, js, img, fonts)
 
 Add a page: create `views/pages/name.html`, register it in `PAGES` in `server/render.js`.

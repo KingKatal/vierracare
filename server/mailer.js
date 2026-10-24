@@ -1,6 +1,6 @@
 // Optional email notifications. Works when SMTP_* variables are set; otherwise logs only.
-const nodemailer = require('nodemailer');
-const site = require('../config/site');
+import nodemailer from 'nodemailer';
+import site from '../config/site.js';
 
 let transport = null;
 if (process.env.SMTP_HOST) {
@@ -14,7 +14,7 @@ if (process.env.SMTP_HOST) {
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const LABEL = { contact: 'Message', care_request: 'Care request', application: 'Job application' };
 
-async function notify(row) {
+export async function notify(row) {
   const subject = `[Vierra] New ${LABEL[row.type]} from ${row.name}`;
   const lines = Object.entries(row.payload).filter(([, v]) => v !== '' && v != null)
     .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;color:#666">${esc(k)}</td><td>${esc(Array.isArray(v) ? v.join(', ') : v)}</td></tr>`).join('');
@@ -33,4 +33,3 @@ async function notify(row) {
     }
   } catch (e) { console.error('[mail] failed:', e.message); }
 }
-module.exports = { notify };

@@ -4,7 +4,7 @@
 //  social links, etc. across every page of the website.
 //  Anything marked  ⚠ CONFIRM  is a placeholder to replace.
 // ─────────────────────────────────────────────────────────────
-module.exports = {
+export default {
   name: 'Vierra Care Services',
   short: 'Vierra',
   tagline: 'Care that feels like home.',
@@ -12,12 +12,11 @@ module.exports = {
   founder: 'Agatha Gondwe, RN',
   founderRole: 'Founder & Owner',
 
-  // SITE_URL wins. Otherwise use Vercel's production/preview URL, then localhost.
+  // SITE_URL wins. Otherwise use Netlify's production URL, then localhost.
   url: (() => {
     const raw = process.env.SITE_URL
-      || (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`)
-      || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
-      || 'http://localhost:3000';
+      || process.env.URL
+      || 'http://localhost:8888';
     const withProto = /^https?:\/\//.test(raw) ? raw : `https://${raw}`;
     return withProto.replace(/\/+$/, '');
   })(),

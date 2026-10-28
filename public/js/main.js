@@ -6,7 +6,7 @@
   const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 
   /* ── Header, progress, parallax (one rAF-throttled scroll handler) ── */
-  const header = $('.site-header'), bar = $('.progress i'), arch = $('.arch img'), blobs = $$('.blob');
+  const header = $('.site-header'), bar = $('.progress i'), arch = $('.arch'), blobs = $$('.blob');
   let ticking = false;
   const onScroll = () => {
     const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
@@ -134,6 +134,53 @@
         showErr(x.message || 'Network error. Please check your connection and try again.');
       }
     });
+  });
+
+  /* ── Slideshows — auto-advance is driven by the progress animation,
+        so pausing (hover/focus) keeps timer and bar perfectly in sync ── */
+  const bind = (root, figSel, ctlSel, name) => {
+    if (!root) return null;
+    const figs = $$(figSel, root), ctls = $$(ctlSel, root);
+    if (figs.length < 2) return null;
+    let i = 0;
+    const show = n => {
+      i = (n + figs.length) % figs.length;
+      figs.forEach((f, k) => {
+        const on = k === i;
+        f.classList.toggle('on', on);
+        f.setAttribute('aria-hidden', on ? 'false' : 'true');
+      });
+      ctls.forEach((c, k) => {
+        const on = k === i;
+        c.classList.toggle('on', on);
+        if (on) c.setAttribute('aria-current', 'true'); else c.removeAttribute('aria-current');
+      });
+    };
+    ctls.forEach((c, k) => c.addEventListener('click', () => show(k)));
+    root.querySelector('[data-gprev]')?.addEventListener('click', () => show(i - 1));
+    root.querySelector('[data-gnext]')?.addEventListener('click', () => show(i + 1));
+    if (!reduce) {
+      root.addEventListener('animationend', e => {
+        if (e.animationName === name && e.target.closest(ctlSel)?.classList.contains('on')) show(i + 1);
+      });
+      if (fine) {
+        const pause = () => root.classList.add('paused');
+        const resume = () => root.classList.remove('paused');
+        root.addEventListener('pointerenter', pause);
+        root.addEventListener('pointerleave', resume);
+        root.addEventListener('focusin', pause);
+        root.addEventListener('focusout', resume);
+      }
+    }
+    return { root, show, index: () => i };
+  };
+
+  // Hero arch — dots double as the timer. Gallery — bars double as the timer.
+  bind($('.hero-visual'), '.arch .slide', '.arch .adot', 'adotFill');
+  const gallery = bind($('[data-gallery]'), '.gslide', '.gbar', 'gfill');
+  gallery?.root.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); gallery.show(gallery.index() - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); gallery.show(gallery.index() + 1); }
   });
 
   onScroll();

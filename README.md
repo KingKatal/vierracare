@@ -13,7 +13,7 @@ Needs **Node 22.13+**. No separate database server needed.
 ## Before going live (important)
 1. **Edit `config/site.js`**: phone, WhatsApp number, email, address, hours, social links. Every page updates.
 2. **Set `.env`**: `ADMIN_PASSWORD`, `SESSION_SECRET`, `SITE_URL`.
-3. Replace `public/img/hero-portrait.jpg` and `hero-wide.jpg` with high-resolution photos (current ones were cropped from the flyer/banner, so they are low resolution).
+3. **Photos** — `public/img/` already ships web-optimised care photos (`hero-1..4.jpg` hero slides, `care-1..8.jpg` gallery, `frame-home.jpg` / `frame-about.jpg` tall frames). To swap in new ones, drop the source into the folder and re-crop at the same aspect (hero 900×1170, care 1600×1067, frame 900×1035) so the layouts keep lining up.
 4. Have the privacy policy (`views/pages/privacy.html`) reviewed for your country's rules.
 5. Add real client testimonials only once you have permission from real clients.
 

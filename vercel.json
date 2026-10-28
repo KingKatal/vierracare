@@ -3,7 +3,7 @@
   "framework": null,
   "functions": {
     "api/index.js": {
-      "includeFiles": ["views/**", "config/**", "public/**"],
+      "includeFiles": "{views,config,public}/**",
       "memory": 1024,
       "maxDuration": 30
     }

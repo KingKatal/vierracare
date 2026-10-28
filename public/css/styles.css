@@ -115,7 +115,23 @@ svg{width:1.25em;height:1.25em;stroke:currentColor;fill:none;stroke-width:1.6;st
 .hero-visual{position:relative;justify-self:center;width:min(100%,500px);aspect-ratio:4/5.2}
 .arch{position:absolute;inset:0;border-radius:999px 999px 28px 28px;overflow:hidden;box-shadow:var(--shadow);background:var(--sage2);animation:archin 1.4s .3s var(--ease) both}
 @keyframes archin{from{clip-path:inset(100% 0 0 0 round 999px 999px 28px 28px)}to{clip-path:inset(0 0 0 0 round 999px 999px 28px 28px)}}
-.arch img{width:100%;height:112%;object-fit:cover;object-position:50% 40%;transform:translateY(var(--py,0px)) scale(1.04);transition:transform .2s linear}
+.arch .slide{position:absolute;inset:0;opacity:0;visibility:hidden;z-index:0;transition:opacity 1.2s var(--ease),visibility 1.2s;animation:archBreath 15s ease-in-out infinite alternate;will-change:opacity,transform}
+.arch .slide.on{opacity:1;visibility:visible;z-index:1}
+@keyframes archBreath{from{transform:scale(1.03)}to{transform:scale(1.13)}}
+.arch img{width:100%;height:112%;object-fit:cover;object-position:50% 40%;transform:translateY(var(--py,0px));transition:transform .2s linear}
+/* Top-centred: both .glass cards anchor to the bottom of the hero visual,
+   so the dome is the only spot that stays clear at every viewport width. */
+.arch-dots{position:absolute;left:50%;top:24px;translate:-50% 0;z-index:5;display:flex;align-items:center;gap:4px;padding:9px 13px;border-radius:999px;background:rgba(8,47,41,.42);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);opacity:0;animation:fadeup .8s 1.5s var(--ease) forwards}
+/* 24×24 hit area (WCAG 2.5.8) with a small visual dot drawn inside */
+.adot{position:relative;flex:none;width:24px;height:24px;padding:0;border:0;background:transparent;border-radius:999px;cursor:pointer;display:grid;place-items:center;transition:width .5s var(--ease),background .4s}
+.adot::before{content:"";grid-area:1/1;width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,.55);transition:background .35s,width .5s var(--ease)}
+.adot:hover::before{background:#fff}
+.adot.on{width:40px;background:rgba(255,255,255,.2)}
+.adot.on::before{width:32px;background:rgba(255,255,255,.3)}
+.adot i{grid-area:1/1;width:32px;height:10px;border-radius:999px;background:var(--gold2);transform:scaleX(0);transform-origin:left;opacity:0}
+.adot.on i{opacity:1;animation:adotFill 6s linear both}
+.hero-visual.paused .adot.on i{animation-play-state:paused}
+@keyframes adotFill{to{transform:scaleX(1)}}
 .ring{position:absolute;inset:-22px;border-radius:999px 999px 40px 40px;border:2px solid transparent;pointer-events:none}
 .ring::before{content:"";position:absolute;inset:0;border-radius:inherit;border:2px dashed var(--gold);opacity:.55;animation:ringfade 3s ease-in-out infinite alternate}
 @keyframes ringfade{to{opacity:.15}}
@@ -234,6 +250,48 @@ svg{width:1.25em;height:1.25em;stroke:currentColor;fill:none;stroke-width:1.6;st
 .cta .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mask-image:linear-gradient(90deg,transparent,#000 40%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 40%)}
 .cta::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;border:60px solid rgba(214,189,124,.12);left:-120px;bottom:-200px;z-index:-1;animation:spin 40s linear infinite}
 @media (max-width:820px){.cta{grid-template-columns:1fr}.cta .pic{min-height:220px;order:-1}.cta .pic img{mask-image:linear-gradient(0deg,transparent,#000 50%);-webkit-mask-image:linear-gradient(0deg,transparent,#000 50%)}}
+
+/* ═════════ Photo gallery slideshow ═════════ */
+.gallery-sec{position:relative;background:linear-gradient(165deg,var(--g8),var(--g7) 55%,var(--g6));color:#fff;overflow:hidden}
+.gallery-sec::before{content:"";position:absolute;right:-170px;top:-150px;width:560px;height:560px;border-radius:50%;border:72px solid rgba(214,189,124,.09);animation:spin 80s linear infinite;pointer-events:none}
+.gallery-sec h2{color:#fff}
+.gallery-sec .eyebrow{color:var(--gold2)}
+.gallery-sec .lead{color:#c3d8cc}
+.gallery-head{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,70px);align-items:end;margin-bottom:clamp(34px,5vw,54px)}
+.gallery-head h2{margin-bottom:0}
+.gallery-head .lead{margin:0}
+@media (max-width:820px){.gallery-head{grid-template-columns:1fr;align-items:start}}
+
+.gallery{position:relative;z-index:1;border-radius:30px;overflow:hidden;background:var(--g9);border:1px solid rgba(255,255,255,.16);box-shadow:0 44px 90px -44px rgba(0,0,0,.75)}
+.gstage{position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--g9)}
+@media (max-width:640px){.gstage{aspect-ratio:4/3}}
+.gslide{position:absolute;inset:0;margin:0;opacity:0;visibility:hidden;z-index:0;transition:opacity .95s var(--ease),visibility .95s}
+.gslide.on{opacity:1;visibility:visible;z-index:1}
+.gslide img{width:100%;height:100%;object-fit:cover}
+.gslide.on img{animation:gken var(--gdur,6s) linear both}
+@keyframes gken{from{transform:scale(1.08)}to{transform:scale(1)}}
+.gslide figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:clamp(70px,14vw,120px) clamp(20px,4vw,44px) clamp(24px,4vw,40px);background:linear-gradient(to top,rgba(6,30,26,.94),rgba(6,30,26,.6) 48%,transparent);display:flex;flex-direction:column;gap:3px;pointer-events:none}
+.gslide.on figcaption{animation:capIn .85s .2s var(--ease) both}
+@keyframes capIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.gslide figcaption b{font-family:var(--display);font-size:clamp(1.2rem,2.6vw,1.75rem);font-weight:500;line-height:1.2;color:#fff;letter-spacing:-.01em}
+.gslide figcaption span{font-size:clamp(.9rem,1.5vw,1rem);color:#c6dbd0;max-width:58ch}
+
+.gctl{display:flex;align-items:center;gap:clamp(12px,3vw,26px);padding:16px clamp(16px,3vw,30px);background:rgba(6,30,26,.6);border-top:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.gbtn{flex:none;width:46px;height:46px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;transition:background .3s,color .3s,border-color .3s,transform .35s var(--ease)}
+.gbtn:hover{background:var(--gold);border-color:var(--gold);color:#1d2a21;transform:scale(1.09)}
+.gbtn:active{transform:scale(.95)}
+.gbtn svg{width:20px;height:20px}
+.gbtn[data-gprev] svg{transform:rotate(180deg)}
+.gbars{display:flex;flex:1;gap:clamp(5px,1vw,10px);min-width:0}
+.gbar{position:relative;flex:1;height:24px;min-width:0;padding:0;border:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.gbar::after{content:"";position:absolute;left:0;right:0;top:50%;height:4px;translate:0 -50%;border-radius:99px;background:rgba(255,255,255,.24);transition:background .3s}
+.gbar:hover::after{background:rgba(255,255,255,.55)}
+.gbar i{position:absolute;left:0;right:0;top:50%;height:4px;translate:0 -50%;border-radius:99px;background:var(--gold2);transform:scaleX(0);transform-origin:left;z-index:1}
+.gbar.on::after{background:rgba(255,255,255,.34)}
+.gbar.on i{animation:gfill var(--gdur,6s) linear both}
+.gallery.paused .gbar.on i{animation-play-state:paused}
+@keyframes gfill{to{transform:scaleX(1)}}
+@media (max-width:560px){.gbtn{width:40px;height:40px}.gctl{gap:10px;padding:13px 14px}}
 
 /* ═════════ Page hero (inner pages) ═════════ */
 .phero{position:relative;padding:calc(var(--hdr) + clamp(50px,8vw,100px)) 0 clamp(50px,7vw,90px);background:linear-gradient(160deg,var(--g8),var(--g7) 60%,var(--g6));color:#fff;overflow:hidden;isolation:isolate}

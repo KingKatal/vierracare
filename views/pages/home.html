@@ -24,7 +24,18 @@
     <div class="hero-visual">
       <div class="ring"></div>
       <div class="crescent" aria-hidden="true"></div>
-      <div class="arch"><img src="/img/hero-portrait.jpg" alt="A smiling nurse holding the hands of an older woman in a bright living room" width="560" height="840" fetchpriority="high"></div>
+      <div class="arch" role="group" aria-roledescription="carousel" aria-label="Moments of Vierra care">
+        <div class="slide on" role="group" aria-roledescription="slide" aria-label="1 of 4"><img src="/img/hero-1.jpg" alt="A nurse kneeling beside an older woman on the sofa in her living room" width="900" height="1170" fetchpriority="high"></div>
+        <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 4" aria-hidden="true"><img src="/img/hero-2.jpg" alt="A nurse standing with an older woman seated in an armchair at home" width="900" height="1170" loading="lazy"></div>
+        <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 4" aria-hidden="true"><img src="/img/hero-3.jpg" alt="A carer resting a comforting hand on an older woman’s shoulder" width="900" height="1170" loading="lazy"></div>
+        <div class="slide" role="group" aria-roledescription="slide" aria-label="4 of 4" aria-hidden="true"><img src="/img/hero-4.jpg" alt="A smiling young man in a wheelchair being taken outside" width="900" height="1170" loading="lazy"></div>
+        <div class="arch-dots">
+          <button type="button" class="adot on" aria-label="Show photo 1" aria-current="true"><i></i></button>
+          <button type="button" class="adot" aria-label="Show photo 2"><i></i></button>
+          <button type="button" class="adot" aria-label="Show photo 3"><i></i></button>
+          <button type="button" class="adot" aria-label="Show photo 4"><i></i></button>
+        </div>
+      </div>
       <div class="glass g1"><span class="ico"><svg><use href="#i-nurse"/></svg></span><div><b>Registered Nurses</b><small>Clinical care at home</small></div></div>
       <div class="glass g2"><span class="ico"><svg><use href="#i-home"/></svg></span><div><b>Peace of mind</b><small>For you &amp; your family</small></div></div>
     </div>
@@ -60,7 +71,7 @@
 <section class="section bg-mist">
   <div class="wrap split">
     <div class="photo-frame reveal" data-r="left">
-      <div class="photo tall"><img src="/img/hero-wide.jpg" alt="Nurse and client sharing a warm moment on a sofa" loading="lazy" style="object-position:35% 50%"></div>
+      <div class="photo tall"><img src="/img/frame-home.jpg" alt="A nurse helping an older man stand up beside his bed at home" loading="lazy"></div>
     </div>
     <div class="reveal" data-r="right">
       <span class="eyebrow">Why families choose Vierra</span>
@@ -88,6 +99,70 @@
       <div class="s"><svg><use href="#i-clock"/></svg><h3>Families needing respite</h3></div>
       <div class="s"><svg><use href="#i-leaf"/></svg><h3>People returning home after hospital</h3></div>
       <div class="s"><svg><use href="#i-nurse"/></svg><h3>Clients needing private nursing support</h3></div>
+    </div>
+  </div>
+</section>
+
+<section class="section gallery-sec" data-gallery>
+  <div class="wrap">
+    <div class="gallery-head">
+      <div class="reveal" data-r="left">
+        <span class="eyebrow">Moments of care</span>
+        <h2>Real care, <em>in real homes</em></h2>
+      </div>
+      <p class="lead reveal" data-r="right">The everyday moments — the listening, the steady hands, the company — that make Vierra what it is.</p>
+    </div>
+
+    <div class="gallery reveal" data-r="zoom" role="group" aria-roledescription="carousel" aria-label="Photos of Vierra care">
+      <div class="gstage">
+        <figure class="gslide on" role="group" aria-roledescription="slide" aria-label="Photo 1 of 8">
+          <img src="/img/care-1.jpg" alt="A nurse sitting beside an older woman, going through notes together on a tablet" width="1600" height="1067" loading="lazy">
+          <figcaption><b>Time to explain, every time</b><span>We talk clients and families through every decision.</span></figcaption>
+        </figure>
+        <figure class="gslide" role="group" aria-roledescription="slide" aria-label="Photo 2 of 8" aria-hidden="true">
+          <img src="/img/care-2.jpg" alt="A nurse helping an older man to stand up beside his bed" width="1600" height="1067" loading="lazy">
+          <figcaption><b>Support with the everyday</b><span>Mobility, medication and the routines of the day.</span></figcaption>
+        </figure>
+        <figure class="gslide" role="group" aria-roledescription="slide" aria-label="Photo 3 of 8" aria-hidden="true">
+          <img src="/img/care-3.jpg" alt="A clinician assessing a man seated in a wheelchair while a nurse takes notes" width="1600" height="1067" loading="lazy">
+          <figcaption><b>Assessments that keep care on track</b><span>Regular clinical review, so the plan keeps fitting.</span></figcaption>
+        </figure>
+        <figure class="gslide" role="group" aria-roledescription="slide" aria-label="Photo 4 of 8" aria-hidden="true">
+          <img src="/img/care-4.jpg" alt="Close-up of a carer’s hands steadying an older person’s hands on a walking cane" width="1600" height="1067" loading="lazy">
+          <figcaption><b>A hand to hold</b><span>Small gestures that come to mean a great deal.</span></figcaption>
+        </figure>
+        <figure class="gslide" role="group" aria-roledescription="slide" aria-label="Photo 5 of 8" aria-hidden="true">
+          <img src="/img/care-5.jpg" alt="A nurse standing at the shoulder of an older woman resting in an armchair at home" width="1600" height="1067" loading="lazy">
+          <figcaption><b>Unhurried, at-home visits</b><span>Care that runs at the person’s own pace.</span></figcaption>
+        </figure>
+        <figure class="gslide" role="group" aria-roledescription="slide" aria-label="Photo 6 of 8" aria-hidden="true">
+          <img src="/img/care-6.jpg" alt="A nurse crouching on the floor to talk with an older woman on a sofa" width="1600" height="1067" loading="lazy">
+          <figcaption><b>Company as much as care</b><span>Conversation and connection are part of good health.</span></figcaption>
+        </figure>
+        <figure class="gslide" role="group" aria-roledescription="slide" aria-label="Photo 7 of 8" aria-hidden="true">
+          <img src="/img/care-7.jpg" alt="A smiling young man in a wheelchair being pushed outdoors on a sunny day" width="1600" height="1067" loading="lazy">
+          <figcaption><b>Independence, with joy in it</b><span>Getting out, staying active, staying themselves.</span></figcaption>
+        </figure>
+        <figure class="gslide" role="group" aria-roledescription="slide" aria-label="Photo 8 of 8" aria-hidden="true">
+          <img src="/img/care-8.jpg" alt="A carer with his arm around an older woman’s shoulder as they talk" width="1600" height="1067" loading="lazy">
+          <figcaption><b>Someone in your corner</b><span>Families are cared for through it too.</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="gctl">
+        <button type="button" class="gbtn" data-gprev aria-label="Previous photo"><svg><use href="#i-arrow"/></svg></button>
+        <div class="gbars" role="group" aria-label="Choose a photo">
+          <button type="button" class="gbar on" aria-label="Photo 1" aria-current="true"><i></i></button>
+          <button type="button" class="gbar" aria-label="Photo 2"><i></i></button>
+          <button type="button" class="gbar" aria-label="Photo 3"><i></i></button>
+          <button type="button" class="gbar" aria-label="Photo 4"><i></i></button>
+          <button type="button" class="gbar" aria-label="Photo 5"><i></i></button>
+          <button type="button" class="gbar" aria-label="Photo 6"><i></i></button>
+          <button type="button" class="gbar" aria-label="Photo 7"><i></i></button>
+          <button type="button" class="gbar" aria-label="Photo 8"><i></i></button>
+        </div>
+        <button type="button" class="gbtn" data-gnext aria-label="Next photo"><svg><use href="#i-arrow"/></svg></button>
+      </div>
     </div>
   </div>
 </section>
@@ -121,7 +196,7 @@
           <a class="btn btn-light btn-lg" href="tel:{{site.phoneHref}}"><svg><use href="#i-phone"/></svg>{{site.phone}}</a>
         </div>
       </div>
-      <div class="pic"><img src="/img/hero-wide.jpg" alt="" loading="lazy"></div>
+      <div class="pic"><img src="/img/care-4.jpg" alt="A carer’s hands gently steadying an older person’s hands on a walking cane" loading="lazy"></div>
     </div>
   </div>
 </section>
